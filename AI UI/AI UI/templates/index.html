@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotions AI</title>
+    <link rel="stylesheet" href="static\style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>EmotionAI</h1>
+            <p class="subtitle">Emotional Speech Recognition Model</p>
+        </header>
+        
+        <div class="input-bubble" id="inputBubble">
+            <i class="fas fa-file-audio mic-icon"></i>
+            <p class="input-text">Upload audio file for emotion analysis</p>
+            <div class="upload-section">
+                <button class="upload-btn">
+                    <i class="fas fa-upload"></i> Choose Audio File
+                </button>
+                <input type="file" id="audioUpload" accept="audio/*" style="display: none;">
+            </div>
+            <div id="fileName" class="file-name"></div>
+        </div>
+        
+        <div class="output-bubble" id="outputBubble">
+            <h2 class="output-title">Emotion Analysis</h2>
+            <div class="emotion-display" id="emotionDisplay">
+                <i class="fas fa-meh-blank emotion-icon neutral"></i>
+                <div class="emotion-text neutral">Neutral</div>
+                
+                <div class="positivity-container">
+                    <div class="positivity-labels">
+                        <span>Negative</span>
+                        <span>Positive</span>
+                    </div>
+                    <div class="positivity-slider">
+                        <div class="slider-track"></div>
+                        <div class="slider-thumb" id="sliderThumb"></div>
+                    </div>
+                    <div class="emotion-scale">
+                        <span>Sad</span>
+                        <span>Angry</span>
+                        <span>Disgust</span>
+                        <span>Fearful</span>
+                        <span>Neutral</span>
+                        <span>Calm</span>
+                        <span>Surprised</span>
+                        <span>Happy</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="loading-dots hidden" id="loadingIndicator">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="analyze-btn" id="analyzeBtn" disabled>
+                <i class="fas fa-brain"></i> Analyze Emotion
+            </button>
+        </div>
+        
+        <footer>
+            <p>EmotionAI &copy; 2025 | Emotional Speech Recognition Model</p>
+        </footer>
+    </div>
+
+    <script src="static\script.js"></script>
+</body>
+</html>

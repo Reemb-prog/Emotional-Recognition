@@ -1,0 +1,367 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-height: 95vh;
+}
+
+h1 {
+    color: white;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 5px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.input-bubble {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.input-bubble:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.mic-icon {
+    font-size: 3.5rem;
+    color: #6e8efb;
+    margin-bottom: 15px;
+}
+
+.input-text {
+    text-align: center;
+    color: #555;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    line-height: 1.2;
+}
+
+.upload-section {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.upload-btn {
+    background: #6e8efb;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.upload-btn:hover {
+    background: #5a7dfa;
+    transform: translateY(-2px);
+}
+
+.file-name {
+    margin-top: 10px;
+    color: #6e8efb;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-align: center;
+    max-width: 100%;
+    word-break: break-word;
+    line-height: 1.2;
+}
+
+.output-bubble {
+    width: 100%;
+    min-height: 230px;
+    max-height: 250px;
+    border-radius: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.output-bubble:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.output-bubble.loading {
+    background: rgba(245, 245, 245, 0.95);
+}
+
+.output-title {
+    font-size: 1.2rem;
+    color: #6e8efb;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.emotion-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.emotion-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    transition: all 0.5s ease;
+}
+
+.emotion-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    transition: all 0.5s ease;
+}
+
+/* Positivity Slider Styles */
+.positivity-container {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.positivity-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3px;
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 600;
+}
+
+.positivity-slider {
+    position: relative;
+    width: 100%;
+    height: 16px;
+    margin-bottom: 5px;
+}
+
+.slider-track {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(to right, #ff3b30, #ffcc00, #4cd964);
+    border-radius: 3px;
+    transform: translateY(-50%);
+}
+
+.slider-thumb {
+    position: absolute;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border: 3px solid #6e8efb;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: left 0.5s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.emotion-scale {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 0.65rem;
+    color: #666;
+    margin-top: 3px;
+}
+
+.emotion-scale span {
+    text-align: center;
+    width: 12.5%;
+    line-height: 1.1;
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.analyze-btn {
+    background: #a777e3;
+    color: white;
+}
+
+.analyze-btn:hover {
+    background: #9666d8;
+    transform: translateY(-2px);
+}
+
+
+.loading-dots {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.loading-dots div {
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+    background-color: #6e8efb;
+    border-radius: 50%;
+    animation: bounce 1.5s infinite ease-in-out;
+}
+
+.loading-dots div:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loading-dots div:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+    0%, 80%, 100% { 
+        transform: scale(0);
+    } 40% { 
+        transform: scale(1);
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.8rem;
+}
+
+/* Emotion-specific styles */
+.sad { color: #5ac8fa; }
+.disgust { color: #a2845e; }
+.fearful { color: #af52de; }
+.angry { color: #ff3b30; }
+.neutral { color: #8e8e93; }
+.calm { color: #34c759; }
+.surprised { color: #ffcc00; }
+.happy { color: #4cd964; }
+
+@media (max-width: 600px) {
+    .container {
+        gap: 15px;
+        max-height: 90vh;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .input-bubble {
+        width: 180px;
+        height: 180px;
+        padding: 15px;
+    }
+    
+    .mic-icon {
+        font-size: 2.5rem;
+    }
+    
+    .input-text {
+        font-size: 0.8rem;
+    }
+    
+    .output-bubble {
+        padding: 20px;
+        min-height: 180px;
+        max-height: 220px;
+    }
+    
+    .output-title {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    
+    .emotion-text {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+    
+    .emotion-scale {
+        font-size: 0.6rem;
+    }
+    
+    button {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-height: 700px) {
+    .container {
+        transform: scale(0.9);
+    }
+}
